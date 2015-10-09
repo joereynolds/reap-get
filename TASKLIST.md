@@ -1,0 +1,2 @@
+- [ ] Move 'temp_db' into json file
+- [ ] Get basic user.conf file working. Including directory paths
