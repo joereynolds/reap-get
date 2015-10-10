@@ -4,10 +4,9 @@
 
 The json is formatted like so
 ```
-Package
-    Package Name
-        Package Verbose Name/Description
-        Package Sources
+Package Name
+    Package Verbose Name/Description
+    Package Sources
 ```
 ##### Package Name
 

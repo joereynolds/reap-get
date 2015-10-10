@@ -9,5 +9,11 @@
         {
             "name" : "GuitarHack impulses",
             "sources" : ["http://relivethefuture.com/music/patches/GuitarHacksImpulses.rar"]
+        },
+    "mellowsound" :
+        {
+            "name" : "MellowSound Mellotron",
+            "sources" : ["https://web.archive.org/web/20030211054234/http://batsound.users.btopenworld.com/mellowsound.zip"]
+        
         }
 }

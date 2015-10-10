@@ -5,22 +5,25 @@ import helpers
 import shutil
 import os
 
+
 class PackageManager():
     """
     @archiveExtensions = A list of all valid extensions to check through. If the file ends in one of these
                          an attempt is made to unzip the file
     """
 
-    archiveExtensions = {'zip','rar'}
+    archiveExtensions = {'zip'}
     vstExtensions = {'exe','dll'}
 
 
     def manage_packages(self, package_name):
         """A wrapper that downloads, extracts and moves the
         file"""
-        print('Retrieving', package_name)
+        print('Downloading', package_name)
         self.download(package_name)
-        #self.unzip(package_name))
+        print('Unzipping', package_name)
+        self.unzip(package_name)
+        print('Moving', package_name,'to [your plugin path]')
         #self.move(self, package_name)
 
     def show_packages(self):
@@ -38,17 +41,27 @@ class PackageManager():
                 print('Unable to download from source, trying other sources')
 
             except ValueError : 
-                print('Unknown url type, whoever submitted this is a douche.')
+                print('Invalid package URL. Please report to package creator') #Give a link to the website when we have one
 
     def unzip(self, downloaded_file):
-        """unzips a file"""
+        """Creates a directory for the downloaded file, unzips it into that directory and removes
+        the leftover file that was downloaded"""
+        try :
+            directory_name = downloaded_file
+            os.mkdir(directory_name)
+        except FileExistsError : 
+            directory_name = downloaded_file + '_reap_get'
+            os.mkdir(downloaded_file + '_reap_get')
+        
         unzipper = zipfile.ZipFile(downloaded_file)
-        unzipper.extractall()
+        unzipper.extractall(directory_name)
+        unzipper.close()
+        os.remove(downloaded_file)
+
 
     def move(self):
-        """Moves the downloaded & extracted file
+        """Moves the extracted file(s)
         to the user's plugin path"""
-        pass
         #try :
         #    shutil.copytree()
 
