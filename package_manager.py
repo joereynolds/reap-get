@@ -15,13 +15,17 @@ class PackageManager():
     vstExtensions = {'exe','dll'}
 
 
-    def manage_package(self, package_name):
+    def manage_packages(self, package_name):
         """A wrapper that downloads, extracts and moves the
         file"""
         print('Retrieving', package_name)
         self.download(package_name)
         #self.unzip(package_name))
         #self.move(self, package_name)
+
+    def show_packages(self):
+        for package in helpers.JSONHelper.get_packages(): 
+            print(package)
 
     def download(self, package_name):
         """downloads a file from @url"""
