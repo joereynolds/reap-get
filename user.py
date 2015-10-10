@@ -6,9 +6,9 @@ class User():
 
     def __init__(self):
         self.conf_file = self.load_user_file()
-        self.plugin_path = self.get_plugin_path()
-        self.name = self.get_name()
-        self.os = self.get_os()
+        self.plugin_path = self.get_property("plugin-path")
+        self.name = self.get_property("name")
+        self.os = self.get_property("os")
 
     def load_user_file(self):
         try : 
@@ -38,18 +38,11 @@ class User():
         """Creates a default plugin path that won't work. Forcing the user to specify one... bad idea or great idea?"""
         return "plz."
 
-    def get_name(self):
+    def get_propery(self, json_property):
         """Returns the name field from the user.json file"""
-        pass
- 
-    def get_os(self):
-        """Returns the os field from the user.json file"""
-        pass
-
-    def get_plugin_path(self):
-        """Returns the plugin-path field from the user.json file"""
-        pass
-
+        json_file = open('user.json')
+        json_obj = json.load(json_file)
+        return json_obj["user"][json_property]
 
     #Setting attributes is very similar. Can be refactored into one function probably
     def set_name(self, name):
