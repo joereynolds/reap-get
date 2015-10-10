@@ -3,12 +3,12 @@
 ### Structure
 
 The json is formatted like so
-
+```
 Package
     Package Name
         Package Verbose Name/Description
         Package Sources
-
+```
 ##### Package Name
 
 Package Name is the name you supply to the console and reap-get will download the package
