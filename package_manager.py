@@ -5,8 +5,7 @@ import helpers
 import shutil
 import os
 
-
-class FileDownloader():
+class PackageManager():
     """
     @archiveExtensions = A list of all valid extensions to check through. If the file ends in one of these
                          an attempt is made to unzip the file

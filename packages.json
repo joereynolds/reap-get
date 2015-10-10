@@ -1,17 +1,13 @@
-{"package" : 
-    {"synth1" : 
+{
+    "synth1" : 
         {
              "name" : "synth1", 
              "sources" : ["http://www.geocities.jp/daichi1969/softsynth/Synth1V113beta3.zip",
                           "synth1.co.uk"]
-        }
-    }
-    {"ghack" :
+        },
+    "ghack" :
         {
-            "name" : "GuitarHack impulses" 
+            "name" : "GuitarHack impulses",
             "sources" : ["http://relivethefuture.com/music/patches/GuitarHacksImpulses.rar"]
         }
-    }
 }
-
-
