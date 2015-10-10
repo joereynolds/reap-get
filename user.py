@@ -34,11 +34,15 @@ class User():
         self.name = default_user["user"]["name"]
         self.os = default_user["user"]["os"]
 
+        print('Name : ', self.name)
+        print('OS :', self.os)
+        print('Plugin Path : ', self.plugin_path)
+
     def create_default_plugin_path(self):
         """Creates a default plugin path that won't work. Forcing the user to specify one... bad idea or great idea?"""
         return "plz."
 
-    def get_propery(self, json_property):
+    def get_property(self, json_property):
         """Returns the name field from the user.json file"""
         json_file = open('user.json')
         json_obj = json.load(json_file)
@@ -73,7 +77,7 @@ class User():
         with open('user.json','w') as user_json:
             json.dump(user, user_json)
 
-    def set_plugin_path(self, path):
+    def set_plugin_path(self, plugin_path):
         """Sets the plugin-path in the user.json file"""
  
         user = {"user" : 
