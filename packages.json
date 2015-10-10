@@ -6,6 +6,12 @@
                           "synth1.co.uk"]
         }
     }
+    {"ghack" :
+        {
+            "name" : "GuitarHack impulses" 
+            "sources" : ["http://relivethefuture.com/music/patches/GuitarHacksImpulses.rar"]
+        }
+    }
 }
 
 

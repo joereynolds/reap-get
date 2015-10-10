@@ -11,4 +11,9 @@ class JSONHelper():
         """Returns an array of all of the sources for a package"""
         return JSONHelper.json_obj['package'][package_name]['sources']
 
+    def add_package():
+        """Adds a package to the JSON file, this will be used for the
+        web interface for users adding packages"""
+        pass
+
 
