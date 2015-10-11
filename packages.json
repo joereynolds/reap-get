@@ -15,5 +15,15 @@
             "name" : "MellowSound Mellotron",
             "sources" : ["https://web.archive.org/web/20030211054234/http://batsound.users.btopenworld.com/mellowsound.zip"]
         
+        },
+    "fishfillets" :
+        {
+            "name" : "The Fish Fillets",
+            "sources" : ["http://www.digitalfishphones.com/binaries/the_fish_fillets_v1_1.zip"]
+        },
+    "dominion" : 
+        {
+            "name" : "Dominion : Signal modelling device",
+            "sources" :  ["http://www.digitalfishphones.com/binaries/dominion_v1.2_PC.zip"]
         }
 }
