@@ -1,6 +1,10 @@
 #reap-get
 
-A package manager for VST audio plugins :D
+Reap-get is a package manager for VST plugins.
+It handles downloading, unzipping and moving the file to your plugin directory all for you. I built this out of my hate for installing plugins. Truly the worst task known to man.
+
+Reap-get (obviously) comes with a database of packages. 
+Follow the instructions below for a brief guide on getting up to speed with it
 
 # Usage
 
@@ -15,6 +19,11 @@ A package manager for VST audio plugins :D
 
 run as administrator in Windows...sigh
 
+##### Set your plugin's directory
+```
+    python reap-get.py --setpath c:/users/your/plugin/path
+```
+
 ##### View all packages
 ```
     python reap-get.py --view 
@@ -23,4 +32,5 @@ run as administrator in Windows...sigh
 ```
     python reap-get.py --install synth1
 ```
+
 
