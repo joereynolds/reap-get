@@ -16,16 +16,23 @@ def run():
     parser.add_argument('--getname','-gn', help='Gets the username in the configuration file.')
     parser.add_argument('--getpath','-gp', help='Gets the plugin path for all downloaded packages to be moved to')
     parser.add_argument('--getos','-go', help='Gets the operating system in the configuration file.')
+    parser.add_argument('--getdetails', '-gd', help='Displays your OS, name, and path')
     parser.add_argument('--view', help="View all packages")
     args = parser.parse_args()
-    manager = package_manager.PackageManager()
     reap_user = user.User()
+    manager = package_manager.PackageManager(reap_user)
 
     if args.install:
         manager.manage_packages(args.install)  
 
     if args.view :
         manager.show_packages()
+
+    if args.getdetails :
+        print(reap_user.name)
+        print(reap_user.os)
+        print(reap_user.plugin_path)
+
 
     if args.setname :
         reap_user.set_name(args.setname)

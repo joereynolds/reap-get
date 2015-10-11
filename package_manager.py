@@ -1,3 +1,4 @@
+import distutils.dir_util
 import urllib.request
 import urllib.error
 import zipfile
@@ -15,6 +16,9 @@ class PackageManager():
     archiveExtensions = {'zip'}
     vstExtensions = {'exe','dll'}
 
+    def __init__(self, user):
+        self.user = user
+
 
     def manage_packages(self, package_name):
         """A wrapper that downloads, extracts and moves the
@@ -22,9 +26,8 @@ class PackageManager():
         print('Downloading', package_name)
         self.download(package_name)
         print('Unzipping', package_name)
+        print('Moving', package_name,'to ',self.user.plugin_path)
         self.unzip(package_name)
-        print('Moving', package_name,'to [your plugin path]')
-        #self.move(self, package_name)
 
     def show_packages(self):
         for package in helpers.JSONHelper.get_packages(): 
@@ -56,13 +59,13 @@ class PackageManager():
         unzipper = zipfile.ZipFile(downloaded_file)
         unzipper.extractall(directory_name)
         unzipper.close()
+        self.move(directory_name)
         os.remove(downloaded_file)
+      
 
-
-    def move(self):
+    def move(self, old_directory):
         """Moves the extracted file(s)
         to the user's plugin path"""
-        #try :
-        #    shutil.copytree()
+        distutils.dir_util.copy_tree(old_directory, self.user.plugin_path +'\\' + old_directory)
 
 
