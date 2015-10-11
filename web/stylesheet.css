@@ -20,11 +20,21 @@ header > *{
     flex : 1;
     flex-basis : 100%;
 }
+
+header,
+main,
+section{
+    margin-bottom : 30px
+}
 main{
     color : #000 /*Change this to something less dark...*/
 }
 
+.big-input{
+    font-size : 2.5rem;
+    padding : 30px 10px;
 
+}
 
 /*!
  * "Fork me on GitHub" CSS ribbon v0.1.1 | MIT License
