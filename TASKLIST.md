@@ -1,5 +1,7 @@
 - [x] Move 'temp_db' into json file
-- [ ] Get basic user.conf file working. Including directory paths
-- [ ] Add a default value to show all plugins in the packages.json if no arguments are supplied
+- [x] Get basic user.conf file working. Including directory paths
+- [x] Add a default value to show all plugins in the packages.json if no arguments are supplied
+- [ ] When a file has been downloaded and moved to the correct plugin path, delete the file from reap-get's directory
+- [ ] Add an --init command that will create a default user.json file for the user
 - [ ] Add regular expressions to arguments (no idea how hard this'll be). i.e. A user can do reap-get -i s* (install all packages beginning with 's')
 - [ ] In the future, when we have the web interface, we'll need to somehow approve packages before they go in the packages file
