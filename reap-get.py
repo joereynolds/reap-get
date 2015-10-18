@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 import package_manager
 import argparse
-import helpers
 import user
 
 def run():
     """Runs the whole shebang""" 
-   
+    #this is begging to be in a class   
     parser = argparse.ArgumentParser()
     parser.add_argument('--install', '-i', help='installs a plugin to your plugin path')
     parser.add_argument('--remove', '-r', help='removes the specified plugin')
@@ -22,6 +21,7 @@ def run():
     args = parser.parse_args()
     reap_user = user.User()
     manager = package_manager.PackageManager(reap_user)
+
 
     if args.install:
         manager.manage_packages(args.install)  

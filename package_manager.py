@@ -2,7 +2,7 @@ import distutils.dir_util
 import urllib.request
 import urllib.error
 import zipfile
-import helpers
+import package_reader
 import shutil
 import os
 
@@ -18,7 +18,7 @@ class PackageManager():
 
     def __init__(self, user):
         self.user = user
-
+        self.reader = package_reader.JSONReader()
 
     def manage_packages(self, package_name):
         """A wrapper that downloads, extracts and moves the
@@ -30,12 +30,12 @@ class PackageManager():
         self.unzip(package_name)
 
     def show_packages(self):
-        for package in helpers.JSONHelper.get_packages(): 
+        for package in self.reader.get_packages():
             print(package)
 
     def download(self, package_name):
-        """downloads a file from @url"""
-        for url in helpers.JSONHelper.get_sources(package_name):
+        """Downloads @package_name from packages.json"""
+        for url in self.reader.get_sources(package_name):
             try :
                 urllib.request.urlretrieve(url, package_name)
                 break
