@@ -5,5 +5,5 @@
 - [x] Add an --init command that will create a default user.json file for the user
 - [ ] Add regular expressions to arguments (no idea how hard this'll be). i.e. A user can do reap-get -i s* (install all packages beginning with 's')
 - [ ] In the future, when we have the web interface, we'll need to somehow approve packages before they go in the packages file
-- [ ] Host the packages.json file online
-- [ ] Change the package layout to 3-9. Not 4-8. Sidebar is too wide with this layout
+- [x] Host the packages.json file online
+- [x] Change the package layout to 3-9. Not 4-8. Sidebar is too wide with this layout
