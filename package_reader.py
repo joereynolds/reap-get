@@ -1,7 +1,6 @@
 import json
 import urllib.request
 
-#maybe not all static methods?
 class JSONReader():
     """Reads package data to send across to the PackageManager class where it can
     be downloaded, viewed etc...
@@ -27,7 +26,8 @@ class JSONReader():
 
     def get_packages(self):
         """Returns an array of package names"""
-        return [key for key in self.data.keys()]
+        #messy
+        return [self.data[package]['name'] for package in range(len(self.data))]
     
     def add_package(self):
         """Adds a package to the JSON file, this will be used for the

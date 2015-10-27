@@ -1,0 +1,24 @@
+[
+    {
+         "name" : "synth1", 
+         "sources" : ["http://www.geocities.jp/daichi1969/softsynth/Synth1V113beta3.zip",
+                      "synth1.co.uk"]
+    },
+    {
+        "name" : "GuitarHack impulses",
+        "sources" : ["http://relivethefuture.com/music/patches/GuitarHacksImpulses.rar"]
+    },
+    {
+        "name" : "MellowSound Mellotron",
+        "sources" : ["https://web.archive.org/web/20030211054234/http://batsound.users.btopenworld.com/mellowsound.zip"]
+    
+    },
+    {
+        "name" : "The Fish Fillets",
+        "sources" : ["http://www.digitalfishphones.com/binaries/the_fish_fillets_v1_1.zip"]
+    },
+    {
+        "name" : "Dominion : Signal modelling device",
+        "sources" :  ["http://www.digitalfishphones.com/binaries/dominion_v1.2_PC.zip"]
+    }
+]
