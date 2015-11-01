@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import distutils.dir_util
 import urllib.request
 import urllib.error

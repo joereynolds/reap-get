@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import sys
 import os
@@ -33,10 +35,6 @@ class User():
         self.plugin_path = default_user["user"]["plugin-path"]
         self.name = default_user["user"]["name"]
         self.os = default_user["user"]["os"]
-
-        print('Name : ', self.name)
-        print('OS :', self.os)
-        print('Plugin Path : ', self.plugin_path)
 
     def create_default_plugin_path(self):
         """Creates a default plugin path that won't work. Forcing the user to specify one... bad idea or great idea?"""
