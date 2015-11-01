@@ -3,6 +3,7 @@
 import json
 import sys
 import os
+import socket
 
 class User():
 
@@ -23,7 +24,7 @@ class User():
         """Creates a 'default' user if the user hasn't done any configuration yet"""
         default_user = {"user" : 
                            {
-                               "name" : os.environ['COMPUTERNAME'],
+                               "name" : socket.gethostname(),
                                "os" : sys.platform,
                                "plugin-path" : self.create_default_plugin_path()
                            }
