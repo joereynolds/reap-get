@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 import distutils.dir_util
+import package_reader
 import urllib.request
 import urllib.error
 import zipfile
-import package_reader
 import shutil
 import os
 

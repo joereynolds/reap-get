@@ -24,7 +24,10 @@ class JSONReader():
 
     def get_sources(self, package_name):
         """Returns an array of all of the sources for a package"""
-        return self.data[package_name]['sources']
+        for package in self.data:
+            if package_name == package['name']:
+                print(package['sources'])
+                return package['sources']
 
     def get_packages(self):
         """Returns an array of package names"""
