@@ -45,13 +45,13 @@ def run():
         print(reap_user.os)
 
     if args.setname :
-        reap_user.set_name(args.setname)
+        reap_user.set_property('name', args.setname)
 
     if args.setos : 
-        reap_user.set_os(args.setos)
+        reap_user.set_property('os', args.setos)
 
     if args.setpath :
-        reap_user.set_plugin_path(args.setpath)
+        reap_user.set_property('plugin-path', args.setpath)
 
 if __name__ == '__main__':
     run()

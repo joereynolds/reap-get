@@ -7,6 +7,13 @@ import socket
 
 class User():
 
+
+    DAWS = {
+        'default': 'some_path',
+        'reaper' : 'some_path',
+        'cubase' : 'some_path',
+    }
+
     def __init__(self):
         self.conf_file = self.load_user_file()
         self.plugin_path = self.get_property("plugin-path")
@@ -14,21 +21,21 @@ class User():
         self.os = self.get_property("os")
 
     def load_user_file(self):
-        try : 
+        try :
             open('user.json')
-        except FileNotFoundError : 
+        except FileNotFoundError :
             print('User configuration file not found. Creating default.')
             self.create_default_json()
 
     def create_default_json(self):
         """Creates a 'default' user if the user hasn't done any configuration yet"""
-        default_user = {"user" : 
-                           {
-                               "name" : socket.gethostname(),
-                               "os" : sys.platform,
-                               "plugin-path" : self.create_default_plugin_path()
-                           }
-                       }
+        default_user  = {
+            "user" : {
+                "name" : socket.gethostname(),
+                "os" : sys.platform,
+                "plugin-path" : self.create_default_plugin_path()
+            }
+        }
 
         with open('user.json','w') as user_json:
             json.dump(default_user, user_json)
@@ -47,47 +54,14 @@ class User():
         json_obj = json.load(json_file)
         return json_obj["user"][json_property]
 
-    #Setting attributes is very similar. Can be refactored into one function probably
-    def set_name(self, name):
-        """Sets the name in the user.json file"""
-
-        user = {"user" : 
-                           {
-                               "name" : name,
-                               "os" : self.os,
-                               "plugin-path" : self.plugin_path
-                           }
-                       }
+    def set_property(self, attr, value):
+        """Sets the ['user'][attr] to [value]
+        i.e.
+            set_json_attr('name', 'kevin')
+            would set the name field to kevin"""
+        json_file = open('user.json')
+        json_obj  = json.load(json_file)
+        json_obj['user'][attr] = value
 
         with open('user.json','w') as user_json:
-            json.dump(user, user_json)
-
-    def set_os(self, os):
-        """Sets the os in the user.json file"""
- 
-        user = {"user" : 
-                           {
-                               "name" : self.name,
-                               "os" : os,
-                               "plugin-path" : self.plugin_path
-                           }
-                       }
-
-        with open('user.json','w') as user_json:
-            json.dump(user, user_json)
-
-    def set_plugin_path(self, plugin_path):
-        """Sets the plugin-path in the user.json file"""
- 
-        user = {"user" : 
-                           {
-                               "name" : self.name,
-                               "os" : self.os,
-                               "plugin-path" : plugin_path
-                           }
-                       }
-
-        with open('user.json','w') as user_json:
-            json.dump(user, user_json)
-
-
+            json.dump(json_obj, user_json)
