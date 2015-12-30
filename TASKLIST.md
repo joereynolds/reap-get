@@ -1,9 +1,11 @@
-- [x] Move 'temp_db' into json file
-- [x] Get basic user.conf file working. Including directory paths
-- [x] Add a default value to show all plugins in the packages.json if no arguments are supplied
 - [ ] When a file has been downloaded and moved to the correct plugin path, delete the file from reap-get's directory
-- [x] Add an --init command that will create a default user.json file for the user
 - [ ] Add regular expressions to arguments (no idea how hard this'll be). i.e. A user can do reap-get -i s* (install all packages beginning with 's')
-- [ ] In the future, when we have the web interface, we'll need to somehow approve packages before they go in the packages file
+- [ ] Add a 'reapfile.json' which is essentially an automated build of all of the plugins you want to install.
+      It's a json file consisting of package names which reap-get will then download one-by-one (thanks to /u/DuoThree for the idea)
 - [x] Host the packages.json file online
+- [x] Get basic user.conf file working. Including directory paths
+- [x] Move 'temp_db' into json file
+- [x] In the future, when we have the web interface, we'll need to somehow approve packages before they go in the packages file
+- [x] Add an --init command that will create a default user.json file for the user
+- [x] Add a default value to show all plugins in the packages.json if no arguments are supplied
 - [x] Change the package layout to 3-9. Not 4-8. Sidebar is too wide with this layout

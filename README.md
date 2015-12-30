@@ -3,13 +3,13 @@
 Reap-get is a package manager for VST plugins.
 It handles downloading, unzipping and moving the file to your plugin directory all for you. I built this out of my hate for installing plugins. Truly the worst task known to man.
 
-Reap-get (obviously) comes with a database of packages. 
+Reap-get comes with a database of packages. 
 Follow the instructions below for a brief guide on getting up to speed with it
 (tested on Windows 10 and a Debian distribution)
 
 # Usage
 
-NOTE: reap-get Python3 only. Therefore if you have both installed you'll need to do
+NOTE: reap-get is Python3 only. Therefore if you have both installed you'll need to do
 ```
     python3 reap-get.py --your_command
 ```
@@ -29,7 +29,7 @@ Anyway, on with the show...
 
 ### Use me 
 
-- run as administrator in Windows...sigh
+- run as administrator in Windows
 - sudo in linux environments
 
 ##### Create a default user
@@ -66,4 +66,4 @@ and you'll find that reap-get has unzipped it and placed it in your plugins dire
 #Web
 
 reap-get isn't just a command line utility. There's a web interface to upload your own packages
-(as long as they're licensed appropriately) which is currently in the works!
+which can be found at http://reap-get.com
