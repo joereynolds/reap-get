@@ -34,7 +34,3 @@ class JSONReader():
         #messy
         return [self.data[package]['name'] for package in range(len(self.data))]
     
-    def add_package(self):
-        """Adds a package to the JSON file, this will be used for the
-        web interface for users adding packages"""
-        pass

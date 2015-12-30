@@ -6,6 +6,7 @@ import urllib.request
 import urllib.error
 import zipfile
 import shutil
+import json
 import os
 
 
@@ -34,6 +35,11 @@ class PackageManager():
     def show_packages(self):
         for package in self.reader.get_packages():
             print(package)
+
+    def process_reapfile(self):
+        with open('reapfile.json') as reapfile:
+            data = json.load(reapfile)
+        print(data)
 
     def download(self, package_name):
         """Downloads @package_name from packages.json"""
@@ -70,4 +76,10 @@ class PackageManager():
         to the user's plugin path"""
         distutils.dir_util.copy_tree(old_directory, self.user.plugin_path +'\\' + old_directory)
 
-
+###replace these for actual tests
+import user
+reap_user = user.User()
+manager = PackageManager(reap_user)
+manager.process_reapfile()
+print(345)
+input()
