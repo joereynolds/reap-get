@@ -1,17 +1,16 @@
 {
-	"packages": [{
-		"package": {
+	"packages": [
+        {
 			"name": "indian-dreamz",
 			"version": "wip"
 		},
-
-		"package": {
+        {
 			"name": "asian-dreamz",
 			"version": "wip"
 		},
-		"package": {
+        {
 			"name": "world-stringz",
 			"version": "wip"
-		}
-	}]
+        }
+    ]
 }

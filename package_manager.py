@@ -37,9 +37,14 @@ class PackageManager():
             print(package)
 
     def process_reapfile(self):
+        """Installs the packages from a user's reapfile"""
         with open('reapfile.json') as reapfile:
             data = json.load(reapfile)
-        print(data)
+
+        for package in data['packages']:
+            self.manage_packages(package['name'])
+
+        
 
     def download(self, package_name):
         """Downloads @package_name from packages.json"""
@@ -80,6 +85,4 @@ class PackageManager():
 import user
 reap_user = user.User()
 manager = PackageManager(reap_user)
-manager.process_reapfile()
-print(345)
-input()
+m = manager.process_reapfile()
