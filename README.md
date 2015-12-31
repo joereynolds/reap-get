@@ -7,6 +7,10 @@ Reap-get comes with a database of packages.
 Follow the instructions below for a brief guide on getting up to speed with it
 (tested on Windows 10 and a Debian distribution)
 
+#Contributing
+
+If you would like to contribute, please see the [contributing guide](docs/contributing.md) 
+
 # Usage
 
 NOTE: reap-get is Python3 only. Therefore if you have both installed you'll need to do
