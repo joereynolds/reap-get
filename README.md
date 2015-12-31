@@ -63,6 +63,10 @@ Once you've found a package that interests you, run the command
 
 and you'll find that reap-get has unzipped it and placed it in your plugins directory
 
+#Reapfiles
+
+A reapfile is a way of automating the installing of multiple plugins.
+read more about reapfiles [here](docs/reapfile.md)
 #Web
 
 reap-get isn't just a command line utility. There's a web interface to upload your own packages
