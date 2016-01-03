@@ -14,7 +14,11 @@
 - [ ] Add the ability to sort by table heading in the package search
 - [ ] Users need the ability to specify multiple sources since the functionality is actually already there
 - [ ] Users should be able to specify the rrest of the fields too (os, vst version, etc...)
-
+- [ ] Add a friendly thank you message when a user submits a package. Something along the lines of
+```
+Thank you for submitting your package, it will be reviewed and approved within 24 hours.
+```
+ 
 
 
 # Complete
