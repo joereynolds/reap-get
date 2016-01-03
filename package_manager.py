@@ -82,7 +82,10 @@ class PackageManager():
         distutils.dir_util.copy_tree(old_directory, self.user.plugin_path +'\\' + old_directory)
 
 ###replace these for actual tests
-import user
-reap_user = user.User()
-manager = PackageManager(reap_user)
-m = manager.process_reapfile()
+
+#import user
+#reap_user = user.User()
+#manager = PackageManager(reap_user)
+#manager.process_reapfile()
+#print(345)
+#input()
