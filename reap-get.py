@@ -8,10 +8,11 @@ def run():
     """Runs the whole shebang""" 
     #this is begging to be in a class   
     parser = argparse.ArgumentParser()
-    parser.add_argument('--install', '-i', help='installs a plugin to your plugin path')
-    parser.add_argument('--remove', '-r', help='removes the specified plugin')
+    parser.add_argument('--install', '-i', help='Installs a plugin to your plugin path')
+    parser.add_argument('--remove', '-r', help='Removes the specified plugin')
     parser.add_argument('--setname','-sn', help='Sets the username in the configuration file.')
     parser.add_argument('--setpath','-sp', help='Sets the plugin path for all downloaded packages to be moved to')
+    parser.add_argument('--view-installed', '-vi', help='Displays installed plugins on the users machine')
     parser.add_argument('--setos','-so', help='Sets the operating system in the configuration file.')
     parser.add_argument('--getname','-gn', action='store_true', help='Gets the username in the configuration file.')
     parser.add_argument('--getpath','-gp', action='store_true', help='Gets the plugin path for all downloaded packages to be moved to')
@@ -27,13 +28,17 @@ def run():
     if args.install:
         manager.manage_packages(args.install)  
 
-    if args.view :
+    if args.view:
         manager.show_packages()
 
-    if args.getdetails :
+    if args.getdetails:
         print(reap_user.name)
         print(reap_user.os)
         print(reap_user.plugin_path)
+
+    if args.remove:
+        manager.remove_package(args.remove)
+        
 
     if args.getname:
         print(reap_user.name)
@@ -44,13 +49,13 @@ def run():
     if args.getos:
         print(reap_user.os)
 
-    if args.setname :
+    if args.setname:
         reap_user.set_property('name', args.setname)
 
-    if args.setos : 
+    if args.setos: 
         reap_user.set_property('os', args.setos)
 
-    if args.setpath :
+    if args.setpath:
         reap_user.set_property('plugin-path', args.setpath)
 
 if __name__ == '__main__':

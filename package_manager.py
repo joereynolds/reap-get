@@ -31,10 +31,20 @@ class PackageManager():
         print('Unzipping', package_name)
         print('Moving', package_name,'to ',self.user.plugin_path)
         self.unzip(package_name)
+        self.user.add_package(package_name)
 
     def show_packages(self):
         for package in self.reader.get_packages():
             print(package)
+
+    def remove_package(self, package_name):
+        """Removes an installed package from the users
+        plugin_path. Note that this implementation will 
+        probably need to be changed when we are managing
+        different versions of the same package"""
+        filepath = self.user.plugin_path + package_name
+        #file removal here
+        print("removed file" + filepath)
 
     def process_reapfile(self):
         """Installs the packages from a user's reapfile"""
@@ -44,18 +54,14 @@ class PackageManager():
         for package in data['packages']:
             self.manage_packages(package['name'])
 
-        
-
     def download(self, package_name):
         """Downloads @package_name from packages.json"""
         for url in self.reader.get_sources(package_name):
-            try :
+            try:
                 urllib.request.urlretrieve(url, package_name)
                 break
-
             except urllib.error.URLError:
                 print('Unable to download from source, trying other sources')
-
             except ValueError : 
                 print('Invalid package URL. Please report to package creator') #Give a link to the website when we have one
 
@@ -74,18 +80,10 @@ class PackageManager():
         unzipper.close()
         self.move(directory_name)
         os.remove(downloaded_file)
-      
 
     def move(self, old_directory):
         """Moves the extracted file(s)
         to the user's plugin path"""
         distutils.dir_util.copy_tree(old_directory, self.user.plugin_path +'\\' + old_directory)
 
-###replace these for actual tests
 
-#import user
-#reap_user = user.User()
-#manager = PackageManager(reap_user)
-#manager.process_reapfile()
-#print(345)
-#input()

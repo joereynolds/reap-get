@@ -1,1 +1,1 @@
-{"user": {"name": "DESKTOP-BKPAQOU", "os": "test", "plugin-path": "/home/joe/tests/"}}
+{"user": {"packages": [{}], "plugin-path": "please/set/a/plugin/path", "os": "win32", "name": "DESKTOP-BKPAQOU"}}

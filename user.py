@@ -33,7 +33,8 @@ class User():
             "user" : {
                 "name" : socket.gethostname(),
                 "os" : sys.platform,
-                "plugin-path" : self.create_default_plugin_path()
+                "plugin-path" : self.create_default_plugin_path(),
+                "packages" : [{}]           
             }
         }
 
@@ -46,8 +47,13 @@ class User():
 
     def create_default_plugin_path(self):
         """Creates a default plugin path that won't work. Forcing the user to specify one... bad idea or great idea?"""
-        return "plz."
+        return "please/set/a/plugin/path"    
 
+    def add_package(self, package_name):
+        """Adds the installed package to the user.json configuration file.
+        This is later used to uninstall the package if the user wishes to do so"""
+        pass
+    
     def get_property(self, json_property):
         """Returns the name field from the user.json file"""
         json_file = open('user.json')
