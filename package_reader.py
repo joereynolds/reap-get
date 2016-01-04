@@ -18,10 +18,9 @@ class JSONReader():
         self.json_path = 'http://reap-get.com/assets/packages.json'
 
     @property
-    @lru_cache(1)
+    @lru_cache(4)
     def data(self):
-        """ Memoized property for accessing remote data
-        """
+        """ Memoized property for accessing remote data"""
         return self._load_json()
             
     def _load_json(self):
