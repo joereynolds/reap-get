@@ -11,30 +11,9 @@ Follow the instructions below for a brief guide on getting up to speed with it
 
 If you would like to contribute, please see the [contributing guide](docs/contributing.md) 
 
-# Usage
+#Setup
 
-NOTE: reap-get is Python3 only. Therefore if you have both installed you'll need to do
-```
-    python3 reap-get.py --your_command
-```
-instead of
-```
-    python reap-get.py --your_command
-```
-
-Anyway, on with the show...
-
-###Clone me
-
-```
-    git clone https://github.com/joereynolds/reap-get.git
-    cd reap-get
-```
-
-### Use me 
-
-- run as administrator in Windows
-- sudo in linux environments
+To see how to install/setup reap-get, checkout the [setup guide](docs/setup.md) 
 
 ##### Create a default user
 Creating a default user saves you some work. It retrieves your name and os for you.
@@ -71,6 +50,7 @@ and you'll find that reap-get has unzipped it and placed it in your plugins dire
 
 A reapfile is a way of automating the installing of multiple plugins.
 read more about reapfiles [here](docs/reapfile.md)
+
 #Web
 
 reap-get isn't just a command line utility. There's a web interface to upload your own packages
