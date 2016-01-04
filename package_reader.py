@@ -2,6 +2,8 @@
 
 import json
 import urllib.request
+from functools import lru_cache
+
 
 class JSONReader():
     """Reads package data to send across to the PackageManager class where it can
@@ -14,9 +16,15 @@ class JSONReader():
 
     def __init__(self):
         self.json_path = 'http://reap-get.com/assets/packages.json'
-        self.data = self.load_json()
 
-    def load_json(self):
+    @property
+    @lru_cache(1)
+    def data(self):
+        """ Memoized property for accessing remote data
+        """
+        return self._load_json()
+            
+    def _load_json(self):
         data = urllib.request.urlopen(self.json_path)
         str_response = data.read().decode('utf-8')
         json_data = json.loads(str_response)
