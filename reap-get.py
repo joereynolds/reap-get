@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-import user
 import argparse
+
+import user
 import package_manager
 
 
