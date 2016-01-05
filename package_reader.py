@@ -20,7 +20,7 @@ class JSONReader():
     @property
     @lru_cache(4)
     def data(self):
-        """ Memoized property for accessing remote data"""
+        """Memoized property for accessing remote data"""
         return self._load_json()
             
     def _load_json(self):
@@ -33,11 +33,20 @@ class JSONReader():
         """Returns an array of all of the sources for a package"""
         for package in self.data:
             if package_name == package['name']:
-                print(package['sources'])
                 return package['sources']
+
+    def get_type(self, package_type):
+        """Returns an array of all packages that have the supplied type.
+        The supplied type is an array on the website-side that includes
+        'instrument' and 'effect' and a few others"""
+        matches = []
+        for package in self.data:
+            if 'type' in package:
+                if package_type == package['type']:
+                    matches.append(package)
+        return matches            
 
     def get_packages(self):
         """Returns an array of package names"""
-        #messy
         return [self.data[package]['name'] for package in range(len(self.data))]
     
