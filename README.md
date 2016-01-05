@@ -15,6 +15,8 @@ If you would like to contribute, please see the [contributing guide](docs/contri
 
 To see how to install/setup reap-get, checkout the [setup guide](docs/setup.md) 
 
+#Quickstart
+
 ##### Create a default user
 Creating a default user saves you some work. It retrieves your name and os for you.
 You'll still have to specify your plugin since Python (suprisingly) can't read minds
