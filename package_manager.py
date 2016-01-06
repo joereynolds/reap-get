@@ -33,9 +33,13 @@ class PackageManager():
         self.unzip(package_name)
         self.user.add_package(package_name)
 
-    def show_packages(self):
-        for package in self.reader.get_packages():
-            print(package)
+    def show_packages(self, package_type=''):
+        if package_type:
+            for package in self.reader.get_type(package_type):
+                print(package)
+        else:        
+            for package in self.reader.get_packages():
+                print(package)
 
     def remove_package(self, package_name):
         """Removes an installed package from the users
