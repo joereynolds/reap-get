@@ -34,12 +34,14 @@ class PackageManager():
         self.user.add_package(package_name)
 
     def show_packages(self, package_type=''):
+        """Prints all packages of a given type (all if not specified).
+        Output is also formatted"""
         if package_type:
             for package in self.reader.get_type(package_type):
                 print(package)
         else:        
             for package in self.reader.get_packages():
-                print(package)
+                print("{:20} | {:10}".format(str(package), str(self.reader.get_type_from_name(package))))
 
     def remove_package(self, package_name):
         """Removes an installed package from the users

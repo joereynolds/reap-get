@@ -46,6 +46,13 @@ class JSONReader():
                     matches.append(package)
         return matches            
 
+    def get_type_from_name(self, package_name):
+        """Returns the package type of a package"""
+        for package in self.data:
+            if package_name == package['name']:
+                if 'type' in package:
+                    return package['type']
+
     def get_packages(self):
         """Returns an array of package names"""
         return [self.data[package]['name'] for package in range(len(self.data))]
