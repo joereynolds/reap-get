@@ -15,38 +15,15 @@ If you would like to contribute, please see the [contributing guide](docs/contri
 
 To see how to install/setup reap-get, checkout the [setup guide](docs/setup.md) 
 
-#Quickstart
+#Example
 
-##### Create a default user
-Creating a default user saves you some work. It retrieves your name and os for you.
-You'll still have to specify your plugin since Python (suprisingly) can't read minds
+It's as easy as doing 
 
 ```
-    python reap-get.py --init
+python reap-get.py --install synth1
 ```
 
-##### Set your plugin's directory
-Once you've set your plugin's directory, reap-get will know all it needs to start
-saving you time :D
-
-```
-    python reap-get.py --setpath c:/users/your/plugin/path
-```
-
-##### View all packages
-Viewing all the packages will help illustrate what is up for grab at this moment
-
-```
-    python reap-get.py --view 
-```
-##### Download a package
-Once you've found a package that interests you, run the command
-
-```
-    python reap-get.py --install synth1
-```
-
-and you'll find that reap-get has unzipped it and placed it in your plugins directory
+but for more complete examples of commands, see the [examples doc](docs/examples.md)
 
 #Reapfiles
 
