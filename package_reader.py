@@ -35,6 +35,17 @@ class JSONReader():
             if package_name == package['name']:
                 return package['sources']
 
+    #Now that we have this, we can probably remove get_sources
+    #and get_type_from_name
+    def get_property(self, package_name, package_property):
+        """Returns the value of a packages key
+        i.e. get_property('synth1', 'type')
+        would return 'instrument'"""
+        for package in self.data:
+            if package_name == package['name']:
+                if package_property in package:
+                    return package[package_property]
+
     def get_type(self, package_type):
         """Returns an array of all packages that have the supplied type.
         The supplied type is an array on the website-side that includes
@@ -45,13 +56,6 @@ class JSONReader():
                 if package_type == package['type']:
                     matches.append(package)
         return matches            
-
-    def get_type_from_name(self, package_name):
-        """Returns the package type of a package"""
-        for package in self.data:
-            if package_name == package['name']:
-                if 'type' in package:
-                    return package['type']
 
     def get_packages(self):
         """Returns an array of package names"""

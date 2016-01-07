@@ -41,7 +41,9 @@ class PackageManager():
                 print(package)
         else:        
             for package in self.reader.get_packages():
-                print("{:20} | {:10}".format(str(package), str(self.reader.get_type_from_name(package))))
+                #create a small cool thing that neatly formats arbitrary
+                #arrays into tabular data.
+                print("{:20} | {:7} | {:10}".format(str(package),str(self.reader.get_property(package, 'os')), str(self.reader.get_property(package, 'type'))))
 
     def remove_package(self, package_name):
         """Removes an installed package from the users
