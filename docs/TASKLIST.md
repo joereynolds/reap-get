@@ -4,7 +4,6 @@
 - [ ] Add regular expressions to arguments (no idea how hard this'll be). i.e. A user can do reap-get -i s* (install all packages beginning with 's')
 - [ ] Add support for versions of a package
 - [ ] Currently you can't remove a package if you want to
-- [ ] Add an extra option to display more info about a package (size, operating system etc...)
 - [ ] --setdaw config option
 - [ ] There's no way to see installed packages
 - [ ] A progress bar whilst packages are downloading would be nice
@@ -23,6 +22,7 @@ Thank you for submitting your package, it will be reviewed and approved within 2
 
 # Complete
 
+- [x] Add an extra option to display more info about a package (size, operating system etc...)
 - [x] Add a 'reapfile.json' which is essentially an automated build of all of the plugins you want to install.
       It's a json file consisting of package names which reap-get will then download one-by-one (thanks to /u/DuoThree for the idea)
 - [x] Host the packages.json file online
