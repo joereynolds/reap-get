@@ -46,6 +46,26 @@ class JSONReader():
                 if package_property in package:
                     return package[package_property]
 
+    def get_properties(self, package_property):
+        """Similar to get_property except that it returns
+        multiple of the result.
+        
+        For example, 
+            get_properties('os')
+        Would return an array of the os for each package
+        such as
+            [window, mac, mac, windows, windows, windows, windows]"""
+        matches = []
+        for package in self.data:
+            if package_property in package:
+                matches.append(package[package_property])
+            else:
+                #I consider this a hack.
+                #Really all of our plugins should have
+                #The data required and keyerrors wouldn't happen
+                matches.append('None')
+        return matches    
+
     def get_type(self, package_type):
         """Returns an array of all packages that have the supplied type.
         The supplied type is an array on the website-side that includes

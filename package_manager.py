@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
 import distutils.dir_util
-import package_reader
 import urllib.request
 import urllib.error
 import zipfile
 import shutil
 import json
 import os
+
+import package_reader
+import tabby
 
 
 class PackageManager():
@@ -40,15 +42,13 @@ class PackageManager():
             for package in self.reader.get_type(package_type):
                 print(package)
         else:        
-            for package in self.reader.get_packages():
-                #create a small cool thing that neatly formats arbitrary
-                #arrays into tabular data.
-                print("{:20} | {:7} | {:4} | {:10}".format(
-                    str(package),
-                    str(self.reader.get_property(package, 'os')),
-                    str(self.reader.get_property(package, 'nicesize')),
-                    str(self.reader.get_property(package, 'type'))
-                ))
+            tabby.tabby_print(
+                self.reader.get_packages(),
+                self.reader.get_properties('type'),
+                self.reader.get_properties('os'),
+                self.reader.get_properties('nicesize'),
+                headings=['PACKAGE', 'TYPE', 'OS', 'SIZE']
+            )
 
     def remove_package(self, package_name):
         """Removes an installed package from the users

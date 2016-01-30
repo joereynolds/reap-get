@@ -11,7 +11,7 @@
 # Web
 
 - [ ] Add the ability to sort by table heading in the package search
-- [ ] Users need the ability to specify multiple sources since the functionality is actually already there
+- [ ] Users need the ability to specify multiple sources since the functionality is actually already there on Python's side
 - [ ] Users should be able to specify the rest of the fields too (os, vst version, etc...)
 - [ ] Add a friendly thank you message when a user submits a package. Something along the lines of
 ```
@@ -22,6 +22,7 @@ Thank you for submitting your package, it will be reviewed and approved within 2
 
 # Complete
 
+- [x] Create methods so the json can work with tabby
 - [x] Add an extra option to display more info about a package (size, operating system etc...)
 - [x] Add a 'reapfile.json' which is essentially an automated build of all of the plugins you want to install.
       It's a json file consisting of package names which reap-get will then download one-by-one (thanks to /u/DuoThree for the idea)
