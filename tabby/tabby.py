@@ -8,15 +8,19 @@ def tabby_print(*arrays, **kwargs):
     length = max_all(*arrays)
     divider = '+' + '-'*(length * len(arrays)) + '+'
 
+    #for some reason, you cant passed in zipped as it gets exhausted
+    # so we need to make a new call every time :( 
     for i, heading in enumerate(kwargs['headings']):
-        print('|' + str(heading) + (' ' * (length - len(str(heading)))), end="")
+        l = get_column_length(i, itertools.zip_longest(*arrays, fillvalue='nil'))
+        print('|' + str(heading) + (' ' * (l - len(str(heading)))), end="")
         #If we're on our final item, add a newline'
         if i == len(kwargs['headings'])-1:
             print()
-    for i, tuples in enumerate(zipped):
+    for tuples in zipped:
         print(divider)
-        for item in tuples:
-            print('|' + str(item) + (' ' * (length - len(str(item)))) , end="")
+        for i, item in enumerate(tuples):
+            l = get_column_length(i, itertools.zip_longest(*arrays, fillvalue='nil'))
+            print('|' + str(item) + (' ' * (l - len(str(item)))) , end="")
         print()
     print(divider)
 
@@ -30,6 +34,12 @@ def max_all(*arrays):
             if len(str(item)) > _max:
                _max = len(str(item))
     return _max
+
+def get_column_length(n, zipped):
+    zipped = list(zipped)
+    column = [str(column[n]) for column in zipped]
+    length = len(max(column, key=len))
+    return length + 2
 
 def test():
     
