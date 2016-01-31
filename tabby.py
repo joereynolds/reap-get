@@ -24,9 +24,27 @@ Beware:
 import itertools
 
 def tabby_print(*arrays, **kwargs):
-    """Prints it to the console"""
+    """Prints our data in a tabular format
+    example
+        tabby_print(
+            [1,2,3,4],
+            ['joe','jim','jon','jak'],
+            headings=['id', 'name']
+        )
+    outputs
+
+        |id |name    
+        +----------+    
+        |1  |joe     
+        +----------+ 
+        |2  |jim     
+        +----------+ 
+        |3  |jon     
+        +----------+ 
+        |4  |jak     
+        +----------+ 
+    """    
     zipped = itertools.zip_longest(*arrays, fillvalue="nil")
-    length = max_all(*arrays)
     l = get_table_length(*arrays)
     divider = '+' + '-'*(l) + '+'
 
@@ -43,15 +61,6 @@ def tabby_print(*arrays, **kwargs):
             print('|' + str(item) + (' ' * (l - len(str(item)))) , end="")
         print()
     print(divider)
-
-def max_all(*arrays):
-    """Gets the max length from all arrays"""
-    _max = 0
-    for array in arrays:
-        for item in array:
-            if len(str(item)) > _max:
-               _max = len(str(item))
-    return _max
 
 def get_table_length(*arrays):
     """Gets the sum of the max length of all columns
@@ -70,14 +79,3 @@ def get_column_length(n, zipped):
     column = [str(column[n]) for column in zipped]
     length = len(max(column, key=len))
     return length + 2
-
-def test():
-    
-    names = ["Joe", "Sarah", "Jim", "Alice", 'Melissa','Andrew']
-    ages  = [25, 32, 45, 30,5 ,6]
-    job   = ['Software Developer', 'Baker', 'Mechanical Engineer', 'Single Mother', 'Unemployed']
-    dob   = [1990, 1994, 1987, 1834]
-
-    tabby_print(names, ages, job, dob, headings=['name', 'ages', 'occupation','dob'])
-
-#test()    
