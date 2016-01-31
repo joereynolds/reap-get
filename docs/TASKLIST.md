@@ -1,6 +1,5 @@
 # Command line
 
-- [ ] When a file has been downloaded and moved to the correct plugin path, delete the file from reap-get's directory
 - [ ] Add regular expressions to arguments (no idea how hard this'll be). i.e. A user can do reap-get -i s* (install all packages beginning with 's')
 - [ ] Add support for versions of a package
 - [ ] Currently you can't remove a package if you want to
@@ -22,6 +21,7 @@ Thank you for submitting your package, it will be reviewed and approved within 2
 
 # Complete
 
+- [x] When a file has been downloaded and moved to the correct plugin path, delete the file from reap-get's directory
 - [x] Create methods so the json can work with tabby
 - [x] Add an extra option to display more info about a package (size, operating system etc...)
 - [x] Add a 'reapfile.json' which is essentially an automated build of all of the plugins you want to install.

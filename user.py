@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
+import socket
 import json
 import sys
 import os
-import socket
 
 class User():
 
@@ -54,7 +54,11 @@ class User():
         This is later used to uninstall the package if the user wishes to do so"""
         json_file = open('user.json')
         json_obj  = json.load(json_file)
-        json_obj['user']['packages'].append({'name' : package_name})
+        json_obj['user']['packages'].append(
+            {
+                'name' : package_name
+            }
+        )
 
         with open('user.json', 'w') as user_json:
             json.dump(json_obj, user_json)

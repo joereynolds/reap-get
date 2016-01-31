@@ -55,8 +55,8 @@ class PackageManager():
         plugin_path. Note that this implementation will 
         probably need to be changed when we are managing
         different versions of the same package"""
-        filepath = self.user.plugin_path + package_name
-        #file removal here
+        filepath = self.user.plugin_path + '/' + package_name
+        os.remove(filepath)
         print("removed file" + filepath)
 
     def process_reapfile(self):
@@ -81,6 +81,10 @@ class PackageManager():
     def unzip(self, downloaded_file):
         """Creates a directory for the downloaded file, unzips it into that directory and removes
         the leftover file that was downloaded"""
+
+        #For some reason, the except clause always gets
+        #executed and not the try so we end up with directories
+        #ending in _reap-get instead of just the normal file name
         try :
             directory_name = downloaded_file
             os.mkdir(directory_name)
@@ -92,7 +96,10 @@ class PackageManager():
         unzipper.extractall(directory_name)
         unzipper.close()
         self.move(directory_name)
+
+        #try and remove both the files   
         os.remove(downloaded_file)
+        shutil.rmtree(downloaded_file + '_reap_get')
 
     def move(self, old_directory):
         """Moves the extracted file(s)
