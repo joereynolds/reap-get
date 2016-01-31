@@ -34,7 +34,7 @@ class User():
                 "name" : socket.gethostname(),
                 "os" : sys.platform,
                 "plugin-path" : self.create_default_plugin_path(),
-                "packages" : [{}]           
+                "packages" : []           
             }
         }
 
@@ -52,7 +52,12 @@ class User():
     def add_package(self, package_name):
         """Adds the installed package to the user.json configuration file.
         This is later used to uninstall the package if the user wishes to do so"""
-        pass
+        json_file = open('user.json')
+        json_obj  = json.load(json_file)
+        json_obj['user']['packages'].append({'name' : package_name})
+
+        with open('user.json', 'w') as user_json:
+            json.dump(json_obj, user_json)
     
     def get_property(self, json_property):
         """Returns the name field from the user.json file"""
