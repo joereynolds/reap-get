@@ -1,1 +1,1 @@
-{"user": {"packages": [{"name": "synth1"}, {"name": "sir1"}, {"name": "synth1"}, {"name": "synth1"}, {"name": "synth1"}], "name": "DESKTOP-BKPAQOU", "os": "win32", "plugin-path": "please/set/a/plugin/path"}}
+{"user": {"packages": [{"name": "synth1"}, {"name": "sir1"}, {"name": "synth1"}, {"name": "synth1"}, {"name": "synth1"}, {"name": "eclipsis"}], "plugin-path": "please/set/a/plugin/path", "name": "DESKTOP-BKPAQOU", "os": "win32"}}

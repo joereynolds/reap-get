@@ -27,7 +27,7 @@ but for more complete examples of commands, see the [examples doc](docs/examples
 
 #Reapfiles
 
-A reapfile is a way of automating the installing of multiple plugins.
+A reapfile is a way of automating the installation of multiple plugins.
 read more about reapfiles [here](docs/reapfile.md)
 
 #Web
