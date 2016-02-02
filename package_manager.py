@@ -18,8 +18,8 @@ class PackageManager():
                          an attempt is made to unzip the file
     """
 
-    archiveExtensions = {'zip'}
-    vstExtensions = {'exe','dll'}
+    archiveExtensions = ('zip')
+    vstExtensions = ('exe','dll')
 
     def __init__(self, user):
         self.user = user
@@ -28,6 +28,10 @@ class PackageManager():
     def manage_packages(self, package_name):
         """A wrapper that downloads, extracts and moves the
         file"""
+        #Check to see if we have the package in our db
+        if not self.reader.get_sources(package_name):
+            print('No package with the name "' + package_name +'" found.')
+            return
         print('Downloading', package_name)
         self.download(package_name)
         print('Unzipping', package_name)
@@ -75,7 +79,7 @@ class PackageManager():
                 break
             except urllib.error.URLError:
                 print('Unable to download from source, trying other sources')
-            except ValueError : 
+            except ValueError: 
                 print('Invalid package URL. Please report to package creator') #Give a link to the website when we have one
 
     def unzip(self, downloaded_file):

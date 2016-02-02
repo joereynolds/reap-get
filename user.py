@@ -47,7 +47,7 @@ class User():
 
     def create_default_plugin_path(self):
         """Creates a default plugin path that won't work. Forcing the user to specify one... bad idea or great idea?"""
-        return "please/set/a/plugin/path"    
+        return "please/set/a/plugin/path/"    
 
     def add_package(self, package_name):
         """Adds the installed package to the user.json configuration file.
