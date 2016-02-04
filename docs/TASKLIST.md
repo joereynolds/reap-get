@@ -6,6 +6,7 @@
 - [ ] --setdaw config option
 - [ ] There's no way to see installed packages
 - [ ] A progress bar whilst packages are downloading would be nice
+- [ ] reap-get should only display approved packages, not all packages.
 
 # Web
 
