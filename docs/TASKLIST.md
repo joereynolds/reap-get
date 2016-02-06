@@ -4,7 +4,6 @@
 - [ ] Add support for versions of a package
 - [ ] Currently you can't remove a package if you want to
 - [ ] --setdaw config option
-- [ ] There's no way to see installed packages
 - [ ] A progress bar whilst packages are downloading would be nice
 - [ ] reap-get should only display approved packages, not all packages.
 
@@ -23,6 +22,7 @@ Thank you for submitting your package, it will be reviewed and approved within 2
 
 # Complete
 
+- [x] There's no way to see installed packages
 - [x] When a file has been downloaded and moved to the correct plugin path, delete the file from reap-get's directory
 - [x] Create methods so the json can work with tabby
 - [x] Add an extra option to display more info about a package (size, operating system etc...)

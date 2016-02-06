@@ -16,6 +16,7 @@ def run():
     parser.add_argument('--init', action='store_true', help="Creates a blank user.json")
     parser.add_argument('--install', '-i', help='Installs a plugin to your plugin path')
     parser.add_argument('--setname','-sn', help='Sets the username in the configuration file.')
+    parser.add_argument('--installed', '-id', action='store_true', help='Shows installed plugins')
     parser.add_argument('--setos','-so', help='Sets the operating system in the configuration file.')
     parser.add_argument('--view-installed', '-vi', help='Displays installed plugins on the users machine')
     parser.add_argument('--reap', '-rp',action='store_true', help='Installs the packages in reapfile.json')
@@ -31,6 +32,9 @@ def run():
 
     if args.install:
         manager.manage_packages(args.install)  
+
+    if args.installed:
+        manager.show_installed_packages()
 
     if args.reap:
         manager.process_reapfile()

@@ -54,6 +54,12 @@ class PackageManager():
                 headings=['PACKAGE', 'TYPE', 'OS', 'SIZE']
             )
 
+    def show_installed_packages(self):
+        tabby.tabby_print(
+            self.reader.get_installed_packages(),
+            headings=['PACKAGE']
+	)
+
     def remove_package(self, package_name):
         """Removes an installed package from the users
         plugin_path. Note that this implementation will 

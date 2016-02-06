@@ -80,4 +80,11 @@ class JSONReader():
     def get_packages(self):
         """Returns an array of package names"""
         return [self.data[package]['name'] for package in range(len(self.data))]
+
+    def get_installed_packages(self):
+        json_file = open('user.json')
+        json_obj = json.load(json_file)
+        print(json_obj['user']['packages'])
+        return [package['name'] for package in json_obj['user']['packages']]
+        
     

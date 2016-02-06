@@ -69,6 +69,7 @@ class User():
         json_obj = json.load(json_file)
         return json_obj["user"][json_property]
 
+
     def set_property(self, attr, value):
         """Sets the ['user'][attr] to [value]
         i.e.
