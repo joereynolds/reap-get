@@ -1,1 +1,1 @@
-{"user": {"name": "DESKTOP-BKPAQOU", "os": "win32", "plugin-path": "D:/programs/reaper/Plugins/FX", "packages": [{"name": "world-stringz"}, {"name": "eclipsis"}, {"name": "famisynth"}, {"name": "chip32"}, {"name": "toad"}, {"name": "sidizer"}, {"name": "ts-secret"}]}}
+{"user": {"packages": [{"name": "amplio-2"}], "plugin-path": "please/set/a/plugin/path/", "name": "DESKTOP-BKPAQOU", "os": "win32"}}

@@ -6,6 +6,8 @@ import sys
 import os
 
 class User():
+    """contains methods for creating and getting user attributes from
+    user.json"""
 
 
     DAWS = {
@@ -15,14 +17,30 @@ class User():
     }
 
     def __init__(self):
+        """
+            self.user_file : The name of the user.json file
+	    self.conf_file : The json object of the user file
+	    self.os : The inferred name of the user's OS
+	    self.name : The inferred name of the user
+	    self.plugin_path : A default path
+
+
+	"""
+        self.user_file = 'user.json'
         self.conf_file = self.load_user_file()
-        self.plugin_path = self.get_property("plugin-path")
-        self.name = self.get_property("name")
+
         self.os = self.get_property("os")
+        self.name = self.get_property("name")
+        self.plugin_path = self.get_property("plugin-path")
+
 
     def load_user_file(self):
+        """does a quick test to see if we have a user file. if not, we create one.
+	this should use an if not a try though..."""
         try :
-            open('user.json')
+            json_file = open(self.user_file)
+            json_obj = json.load(json_file)
+            return json_obj
         except FileNotFoundError :
             print('User configuration file not found. Creating default.')
             self.create_default_json()
@@ -38,7 +56,7 @@ class User():
             }
         }
 
-        with open('user.json','w') as user_json:
+        with open(self.user_file, 'w') as user_json:
             json.dump(default_user, user_json)
 
         self.plugin_path = default_user["user"]["plugin-path"]
@@ -46,13 +64,13 @@ class User():
         self.os = default_user["user"]["os"]
 
     def create_default_plugin_path(self):
-        """Creates a default plugin path that won't work. Forcing the user to specify one... bad idea or great idea?"""
+        """Creates a default plugin path that won't work. Forcing the user to specify one..."""
         return "please/set/a/plugin/path/"    
 
     def add_package(self, package_name):
         """Adds the installed package to the user.json configuration file.
         This is later used to uninstall the package if the user wishes to do so"""
-        json_file = open('user.json')
+        json_file = open(self.user_file)
         json_obj  = json.load(json_file)
         json_obj['user']['packages'].append(
             {
@@ -60,14 +78,12 @@ class User():
             }
         )
 
-        with open('user.json', 'w') as user_json:
+        with open(self.user_file, 'w') as user_json:
             json.dump(json_obj, user_json)
     
     def get_property(self, json_property):
         """Returns the name field from the user.json file"""
-        json_file = open('user.json')
-        json_obj = json.load(json_file)
-        return json_obj["user"][json_property]
+        return self.conf_file['user'][json_property] 
 
 
     def set_property(self, attr, value):
@@ -75,9 +91,9 @@ class User():
         i.e.
             set_json_attr('name', 'kevin')
             would set the name field to kevin"""
-        json_file = open('user.json')
+        json_file = open(self.user_file)
         json_obj  = json.load(json_file)
         json_obj['user'][attr] = value
 
-        with open('user.json','w') as user_json:
+        with open(self.user_file, 'w') as user_json:
             json.dump(json_obj, user_json)
