@@ -14,6 +14,7 @@
 - [ ] Users need the ability to specify multiple sources since the functionality is actually already there on Python's side
 - [ ] Users should be able to specify the rest of the fields too (os, vst version, etc...)
 - [ ] Add a friendly thank you message when a user submits a package. Something along the lines of
+- [ ] create a cron that pings the download of plugins location to make sure the plugin hasn't 404d or moved.
 ```
 Thank you for submitting your package, it will be reviewed and approved within 24 hours.
 ```
