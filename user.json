@@ -1,1 +1,1 @@
-{"user": {"packages": [{"name": "amplio-2"}], "plugin-path": "please/set/a/plugin/path/", "name": "DESKTOP-BKPAQOU", "os": "win32"}}
+{"user": {"packages": [{"name": "amplio-2"}, {"name": "amplio-2"}], "os": "win32", "plugin-path": "please/set/a/plugin/path/", "name": "DESKTOP-BKPAQOU"}}

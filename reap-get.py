@@ -18,7 +18,6 @@ def run():
     parser.add_argument('--setname','-sn', help='Sets the username in the configuration file.')
     parser.add_argument('--installed', '-id', action='store_true', help='Shows installed plugins')
     parser.add_argument('--setos','-so', help='Sets the operating system in the configuration file.')
-    parser.add_argument('--view-installed', '-vi', help='Displays installed plugins on the users machine')
     parser.add_argument('--reap', '-rp',action='store_true', help='Installs the packages in reapfile.json')
     parser.add_argument('--getdetails', '-gd',action='store_true', help='Displays your OS, name, and path')
     parser.add_argument('--setpath','-sp', help='Sets the plugin path for all downloaded packages to be moved to')
