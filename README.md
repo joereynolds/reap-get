@@ -3,7 +3,7 @@
 Reap-get is a package manager for VST plugins.
 It handles downloading, unzipping and moving the file to your plugin directory all for you. I built this out of my hate for installing plugins. Truly the worst task known to man.
 
-[gif](demo.gif)
+![gif](demo.gif)
 
 Reap-get comes with a database of packages. 
 Follow the instructions below for a brief guide on getting up to speed with it
