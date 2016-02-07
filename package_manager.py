@@ -60,9 +60,27 @@ class PackageManager():
         """Removes an installed package from the users
         plugin_path. Note that this implementation will 
         probably need to be changed when we are managing
-        different versions of the same package"""
-        package_name = 'vst-' + package_name
-        filepath = self.user.plugin_path + '/' + package_name
+        different versions of the same package
+	
+	command : reap-get --remove package_name
+	"""
+        filepath_name = 'vst-' + package_name
+        filepath = self.user.plugin_path + '/' + filepath_name
+
+        self.remove_package_from_filesystem(filepath)
+        self.remove_package_from_json(package_name)
+
+    def remove_package_from_json(self, package_name: str):
+        """Removes the plugin entry from the user's json file."""
+        for element in self.user.conf_file['user']['packages']:
+            if element['name'] == package_name:
+                del element['name']
+	
+        print(self.user.conf_file['user']['packages'])
+
+    def remove_package_from_filesystem(self, filepath: str):	
+        """Removes the packages from the machine
+        filename : the path to our file i.e. d:/programs/reaper/fx/vst-synth1"""
         try: 
             shutil.rmtree(filepath)
         except FileNotFoundError:

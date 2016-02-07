@@ -37,19 +37,19 @@ class User():
     def load_user_file(self):
         """does a quick test to see if we have a user file. if not, we create one.
 	this should use an if not a try though..."""
-        try :
+        try:
             json_file = open(self.user_file)
-        except FileNotFoundError :
+        except FileNotFoundError:
             print('User configuration file not found. Creating default.')
             self.create_default_json()
-        else :	    
+        else:	    
             json_obj = json.load(json_file)
             json_file.close()
             return json_obj
 
     def create_default_json(self):
         """Creates a 'default' user if the user hasn't done any configuration yet"""
-        default_user  = {
+        default_user = {
             "user" : {
                 "name" : socket.gethostname(),
                 "os" : sys.platform,
@@ -73,7 +73,7 @@ class User():
         """Adds the installed package to the user.json configuration file.
         This is later used to uninstall the package if the user wishes to do so"""
         json_file = open(self.user_file)
-        json_obj  = json.load(json_file)
+        json_obj = json.load(json_file)
         json_obj['user']['packages'].append(
             {
                 'name' : package_name
