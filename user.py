@@ -39,11 +39,13 @@ class User():
 	this should use an if not a try though..."""
         try :
             json_file = open(self.user_file)
-            json_obj = json.load(json_file)
-            return json_obj
         except FileNotFoundError :
             print('User configuration file not found. Creating default.')
             self.create_default_json()
+        else :	    
+            json_obj = json.load(json_file)
+            json_file.close()
+            return json_obj
 
     def create_default_json(self):
         """Creates a 'default' user if the user hasn't done any configuration yet"""
