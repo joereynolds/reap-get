@@ -13,13 +13,6 @@ import tabby
 
 
 class PackageManager():
-    """
-    @archiveExtensions = A list of all valid extensions to check through. If the file ends in one of these
-                         an attempt is made to unzip the file
-    """
-
-    archiveExtensions = ('zip')
-    vstExtensions = ('exe','dll')
 
     def __init__(self, user):
         self.user = user
@@ -63,14 +56,19 @@ class PackageManager():
         except ValueError:
             print('You have no packages installed')
 
-    def remove_package(self, package_name):
+    def remove_package(self, package_name: str):
         """Removes an installed package from the users
         plugin_path. Note that this implementation will 
         probably need to be changed when we are managing
         different versions of the same package"""
+        package_name = 'vst-' + package_name
         filepath = self.user.plugin_path + '/' + package_name
-        os.remove(filepath)
-        print("removed file" + filepath)
+        try: 
+            shutil.rmtree(filepath)
+        except FileNotFoundError:
+            print("reap-get couldn't find the file " + filepath)
+        else:	    
+            print("removed file " + filepath)
 
     def process_reapfile(self):
         """Installs the packages from a user's reapfile"""
@@ -95,28 +93,25 @@ class PackageManager():
         """Creates a directory for the downloaded file, unzips it into that directory and removes
         the leftover file that was downloaded"""
 
-        #For some reason, the except clause always gets
-        #executed and not the try so we end up with directories
-        #ending in _reap-get instead of just the normal file name
-        try :
-            directory_name = downloaded_file
-            os.mkdir(directory_name)
-        except FileExistsError : 
-            directory_name = downloaded_file + '_reap_get'
-            os.mkdir(downloaded_file + '_reap_get')
+        directory_name = 'vst-' + downloaded_file
+        os.mkdir(directory_name)
         
-        unzipper = zipfile.ZipFile(downloaded_file)
-        unzipper.extractall(directory_name)
-        unzipper.close()
+        self.extract(downloaded_file, directory_name)
         self.move(directory_name)
 
-        #try and remove both the files   
+        #remove temporary files
         os.remove(downloaded_file)
-        shutil.rmtree(downloaded_file + '_reap_get')
+        shutil.rmtree(directory_name)
 
     def move(self, old_directory):
         """Moves the extracted file(s)
         to the user's plugin path"""
         distutils.dir_util.copy_tree(old_directory, self.user.plugin_path +'\\' + old_directory)
+
+    def extract(self, filename, directory_name):
+        """extracts filename and places it into directory_name"""
+        unzipper = zipfile.ZipFile(filename)
+        unzipper.extractall(directory_name)
+        unzipper.close()
 
 

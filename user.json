@@ -1,1 +1,1 @@
-{"user": {"name": "DESKTOP-BKPAQOU", "os": "win32", "plugin-path": "please/set/a/plugin/path/", "packages": [{"name": "synth1"}]}}
+{"user": {"packages": [{"name": "synth1"}, {"name": "synth1"}, {"name": "synth1"}, {"name": "synth1"}, {"name": "synth1"}, {"name": "easyq"}, {"name": "ufoze"}], "os": "win32", "plugin-path": "D:/programs/reaper/Plugins/FX", "name": "DESKTOP-BKPAQOU"}}
