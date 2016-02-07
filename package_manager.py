@@ -25,7 +25,7 @@ class PackageManager():
         self.user = user
         self.reader = package_reader.JSONReader()
 
-    def manage_packages(self, package_name):
+    def manage_packages(self, package_name: str):
         """A wrapper that downloads, extracts and moves the
         file"""
         #Check to see if we have the package in our db
@@ -77,7 +77,7 @@ class PackageManager():
         for package in data['packages']:
             self.manage_packages(package['name'])
 
-    def download(self, package_name):
+    def download(self, package_name: str):
         """Downloads @package_name from packages.json"""
         for url in self.reader.get_sources(package_name):
             try:

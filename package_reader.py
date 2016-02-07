@@ -2,8 +2,8 @@
 
 import json
 import urllib.request
+from typing import List
 from functools import lru_cache
-
 
 class JSONReader():
     """Reads package data to send across to the PackageManager class where it can
@@ -29,7 +29,7 @@ class JSONReader():
         json_data = json.loads(str_response)
         return json_data
 
-    def get_sources(self, package_name):
+    def get_sources(self, package_name: str) -> List[str]:
         """Returns an array of all of the sources for a package"""
         for package in self.data:
             if package_name == package['name']:
@@ -37,7 +37,7 @@ class JSONReader():
 
     #Now that we have this, we can probably remove get_sources
     #and get_type_from_name
-    def get_property(self, package_name, package_property):
+    def get_property(self, package_name: str, package_property: str) -> str:
         """Returns the value of a packages key
         i.e. get_property('synth1', 'type')
         would return 'instrument'"""
@@ -46,7 +46,7 @@ class JSONReader():
                 if package_property in package:
                     return package[package_property]
 
-    def get_properties(self, package_property):
+    def get_properties(self, package_property: str) -> List[str]:
         """Similar to get_property except that it returns
         multiple of the result.
         
@@ -66,7 +66,7 @@ class JSONReader():
                 matches.append('None')
         return matches    
 
-    def get_type(self, package_type):
+    def get_type(self, package_type: str) -> List[str]:
         """Returns an array of all packages that have the supplied type.
         The supplied type is an array on the website-side that includes
         'instrument' and 'effect' and a few others"""
