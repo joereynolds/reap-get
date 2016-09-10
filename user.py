@@ -5,6 +5,7 @@ import json
 import sys
 import os
 
+
 class User():
     """contains methods for creating and getting user attributes from
     user.json"""
@@ -16,7 +17,7 @@ class User():
         'cubase' : 'some_path',
     }
 
-    def __init__(self):
+    def __init__(self, user_json_file = 'user.json'):
         """
             self.user_file : The name of the user.json file
 	    self.conf_file : The json object of the user file
@@ -26,7 +27,7 @@ class User():
 
 
 	"""
-        self.user_file = 'user.json'
+        self.user_file = user_json_file
         self.conf_file = self.load_user_file()
 
         self.os = self.get_property("os")
@@ -86,7 +87,6 @@ class User():
     def get_property(self, json_property):
         """Returns the name field from the user.json file"""
         return self.conf_file['user'][json_property] 
-
 
     def set_property(self, attr, value):
         """Sets the ['user'][attr] to [value]
