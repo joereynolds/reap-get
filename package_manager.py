@@ -8,7 +8,7 @@ import shutil
 import json
 import os
 
-import package_reader
+import package_repository
 import tabby
 
 
@@ -16,7 +16,7 @@ class PackageManager():
 
     def __init__(self, user):
         self.user = user
-        self.reader = package_reader.JSONReader()
+        self.reader = package_repository.PackageRepository()
 
     def manage_packages(self, package_name: str):
         """A wrapper that downloads, extracts and moves the

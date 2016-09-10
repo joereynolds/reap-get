@@ -5,7 +5,7 @@ import urllib.request
 from typing import List
 from functools import lru_cache
 
-class JSONReader():
+class PackageRepository():
     """Reads package data to send across to the PackageManager class where it can
     be downloaded, viewed etc...
     
@@ -14,8 +14,8 @@ class JSONReader():
     @data = The packages.json file
     """
 
-    def __init__(self):
-        self.json_path = 'http://reap-get.com/assets/packages.json'
+    def __init__(self, json_path = 'http://reap-get.com/assets/packages.json'):
+        self.json_path = json_path
 
     @property
     @lru_cache(4)
@@ -24,9 +24,16 @@ class JSONReader():
         return self._load_json()
             
     def _load_json(self):
-        data = urllib.request.urlopen(self.json_path)
-        str_response = data.read().decode('utf-8')
-        json_data = json.loads(str_response)
+        #This is a giant hack, basically we check for http
+        #if it doesn't have that in the string, then in theory
+        #we're passing it raw json.
+        #this is mainly useful for testing. I'm sorry...
+        if 'http' in self.json_path:
+            data = urllib.request.urlopen(self.json_path)
+            str_response = data.read().decode('utf-8')
+            json_data = json.loads(str_response)
+        else:
+            json_data = json.loads(json.dumps(self.json_path))
         return json_data
 
     def get_sources(self, package_name: str) -> List[str]:
