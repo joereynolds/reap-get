@@ -1,0 +1,54 @@
+{
+    "user": {
+        "name": "DESKTOP-BKPAQOU",
+        "plugin-path": "D:/programs/reaper/Plugins/FX",
+        "os": "win32",
+        "packages": [
+            {
+                "name": "synth1"
+            },
+            {
+                "name": "easyq"
+            },
+            {
+                "name": "ufoze"
+            },
+            {
+                "name": "akoustik-keyz"
+            },
+            {
+                "name": "amplio-2"
+            },
+            {
+                "name": "easyq"
+            },
+            {
+                "name": "indian-dreamz"
+            },
+            {
+                "name": "asian-dreamz"
+            },
+            {
+                "name": "world-stringz"
+            },
+            {
+                "name": "FishFillets"
+            },
+            {
+                "name": "Dominion"
+            },
+            {
+                "name": "sir1"
+            },
+            {
+                "name": "juicy77"
+            },
+            {
+                "name": "akoustik-keyz"
+            },
+            {
+                "name": "amplio-2"
+            }
+        ]
+    }
+}

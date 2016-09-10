@@ -24,8 +24,6 @@ class User():
 	    self.os : The inferred name of the user's OS
 	    self.name : The inferred name of the user
 	    self.plugin_path : A default path
-
-
 	"""
         self.user_file = user_json_file
         self.conf_file = self.load_user_file()
@@ -43,7 +41,7 @@ class User():
         except FileNotFoundError:
             print('User configuration file not found. Creating default.')
             self.create_default_json()
-        else:	    
+        else:
             json_obj = json.load(json_file)
             json_file.close()
             return json_obj
@@ -55,7 +53,7 @@ class User():
                 "name" : socket.gethostname(),
                 "os" : sys.platform,
                 "plugin-path" : self.create_default_plugin_path(),
-                "packages" : []           
+                "packages" : []
             }
         }
 
@@ -68,7 +66,7 @@ class User():
 
     def create_default_plugin_path(self):
         """Creates a default plugin path that won't work. Forcing the user to specify one..."""
-        return "please/set/a/plugin/path/"    
+        return "please/set/a/plugin/path/"
 
     def add_package(self, package_name):
         """Adds the installed package to the user.json configuration file.
@@ -83,10 +81,10 @@ class User():
 
         with open(self.user_file, 'w') as user_json:
             json.dump(json_obj, user_json)
-    
+
     def get_property(self, json_property):
         """Returns the name field from the user.json file"""
-        return self.conf_file['user'][json_property] 
+        return self.conf_file['user'][json_property]
 
     def set_property(self, attr, value):
         """Sets the ['user'][attr] to [value]
