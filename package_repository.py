@@ -5,6 +5,7 @@ import urllib.request
 from typing import List
 from functools import lru_cache
 
+
 class PackageRepository():
     """Reads package data to send across to the PackageManager class where it can
     be downloaded, viewed etc...
@@ -84,7 +85,7 @@ class PackageRepository():
                     matches.append(package)
         return matches            
 
-    def get_packages(self):
+    def get_package_names(self) -> List[str]:
         """Returns an array of package names"""
         return [self.data[package]['name'] for package in range(len(self.data))]
 
