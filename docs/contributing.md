@@ -2,18 +2,10 @@
 
 If you would like to contribute to reap-get, fork the branch and submit a pull request!
 
-## Workflow
-
-reap-get follows the usual git workflow of most other projects.
-
-- Fork the repo
-- Clone your fork
-- Create a branch for your changes
-- Make your changes and make a pull request
-
 ## What should I work on?
 
-- Write unit tests for reap-get as currently, there are none :O!
+- Write unit tests for reap-get as currently, there are only a handful :(
+- Write acceptance tests for reap-get, there aren't any and they'd definitely be helpful to test output.
 - Have a go at completing a task from the 'command-line' section of tasklist.md
 - Test reap-get itself.
     - Are there any packages that download incorrectly?
