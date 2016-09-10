@@ -9,6 +9,7 @@ import json
 import os
 
 import package_repository
+import config
 import tabby
 
 
@@ -38,7 +39,7 @@ class PackageManager():
         if package_type:
             for package in self.reader.get_type(package_type):
                 print(package)
-        else:        
+        else:
             tabby.tabby_print(
                 self.reader.get_package_names(),
                 self.reader.get_properties('type'),
@@ -58,10 +59,10 @@ class PackageManager():
 
     def remove_package(self, package_name: str):
         """Removes an installed package from the users
-        plugin_path. Note that this implementation will 
+        plugin_path. Note that this implementation will
         probably need to be changed when we are managing
         different versions of the same package
-	
+
 	command : reap-get --remove package_name
 	"""
         filepath_name = 'vst-' + package_name
@@ -75,22 +76,22 @@ class PackageManager():
         for element in self.user.conf_file['user']['packages']:
             if element['name'] == package_name:
                 del element['name']
-	
+
         print(self.user.conf_file['user']['packages'])
 
-    def remove_package_from_filesystem(self, filepath: str):	
+    def remove_package_from_filesystem(self, filepath: str):
         """Removes the packages from the machine
         filename : the path to our file i.e. d:/programs/reaper/fx/vst-synth1"""
-        try: 
+        try:
             shutil.rmtree(filepath)
         except FileNotFoundError:
             print("reap-get couldn't find the file " + filepath)
-        else:	    
+        else:
             print("removed file " + filepath)
 
     def process_reapfile(self):
         """Installs the packages from a user's reapfile"""
-        with open('data/reapfile.json') as reapfile:
+        with open(config.reapfile_file) as reapfile:
             data = json.load(reapfile)
 
         for package in data['packages']:
@@ -104,7 +105,7 @@ class PackageManager():
                 break
             except urllib.error.URLError:
                 print('Unable to download from source, trying other sources')
-            except ValueError: 
+            except ValueError:
                 print('Invalid package URL. Please report to package creator') #Give a link to the website when we have one
 
     def unzip(self, downloaded_file):
@@ -113,7 +114,7 @@ class PackageManager():
 
         directory_name = 'vst-' + downloaded_file
         os.mkdir(directory_name)
-        
+
         self.extract(downloaded_file, directory_name)
         self.move(directory_name)
 

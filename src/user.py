@@ -5,6 +5,7 @@ import json
 import sys
 import os
 
+import config
 
 class User():
     """contains methods for creating and getting user attributes from
@@ -17,7 +18,7 @@ class User():
         'cubase' : 'some_path',
     }
 
-    def __init__(self, user_json_file = 'data/user.json'):
+    def __init__(self, user_json_file = config.user_json_file):
         """
             self.user_file : The name of the user.json file
 	    self.conf_file : The json object of the user file
