@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#/usr/bin/env python3
 
 import distutils.dir_util
 import urllib.request
@@ -90,7 +90,7 @@ class PackageManager():
 
     def process_reapfile(self):
         """Installs the packages from a user's reapfile"""
-        with open('reapfile.json') as reapfile:
+        with open('data/reapfile.json') as reapfile:
             data = json.load(reapfile)
 
         for package in data['packages']:
