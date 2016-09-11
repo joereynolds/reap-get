@@ -41,7 +41,7 @@ class PackageManager():
                 print(package)
         else:
             tabby.tabby_print(
-                self.reader.get_package_names(),
+                self.reader.get_properties('name'),
                 self.reader.get_properties('type'),
                 self.reader.get_properties('os'),
                 self.reader.get_properties('nicesize'),

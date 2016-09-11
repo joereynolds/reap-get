@@ -47,7 +47,7 @@ class TestPackageRepository(unittest.TestCase):
 
     def test_it_returns_an_array_of_package_names(self):
         expected = ['package_1', 'package_2', 'package_3', 'package_4']
-        actual = self.package_repository.get_package_names()
+        actual = self.package_repository.get_properties('name')
         self.assertEqual(expected, actual)
 
     def test_it_returns_an_array_of_sources_for_a_package(self):

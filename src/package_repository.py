@@ -82,10 +82,6 @@ class PackageRepository():
         json_obj = json.load(json_file)
         return [package['name'] for package in json_obj['user']['packages']]
         
-    def get_package_names(self) -> List[str]:
-        """Returns an array of package names"""
-        return self.get_properties('name')
-    
     def get_sources(self, package_name: str) -> List[str]:
         """Returns an array of all of the sources for a package"""
         return self.get_property(package_name, 'sources')
