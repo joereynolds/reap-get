@@ -30,7 +30,9 @@ To see how to install/setup reap-get, checkout the [setup guide](docs/setup.md)
 
 #Tests
 
-Tests can be ran by `cd`ing to the `src` directory and running `python3 test_package_repository.py` and `test_user.py`
+Tests can be ran by `cd`ing to the `src` directory and running 
+
+`python3 -m unittest discover -p 'test_*.py'`
 
 There are also acceptance tests for reap-get, to run these you will need the tool [shelltest](https://github.com/liquidz/shelltest)
 
