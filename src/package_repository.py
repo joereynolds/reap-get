@@ -41,8 +41,6 @@ class PackageRepository():
         """Returns an array of all of the sources for a package"""
         return self.get_property(package_name, 'sources')
 
-    #Now that we have this, we can probably remove get_sources
-    #and get_type_from_name
     def get_property(self, package_name: str, package_property: str) -> str:
         """Returns the value of a packages key
         i.e. get_property('synth1', 'type')
@@ -72,14 +70,15 @@ class PackageRepository():
                 matches.append('None')
         return matches    
 
-    def get_type(self, package_type: str) -> List[str]:
+
+    def filter_where(self, package_type: str, value: str) -> List[str]:
         """Returns an array of all packages that have the supplied type.
         The supplied type is an array on the website-side that includes
         'instrument' and 'effect' and a few others"""
         matches = []
         for package in self.data:
-            if 'type' in package:
-                if package_type == package['type']:
+            if package_type in package:
+                if value == package[package_type]:
                     matches.append(package)
         return matches            
 

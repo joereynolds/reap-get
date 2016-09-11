@@ -37,7 +37,7 @@ class PackageManager():
         """Prints all packages of a given type (all if not specified).
         Output is also formatted"""
         if package_type:
-            for package in self.reader.get_type(package_type):
+            for package in self.reader.filter_where('type', package_type):
                 print(package)
         else:
             tabby.tabby_print(
