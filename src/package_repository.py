@@ -37,10 +37,6 @@ class PackageRepository():
             json_data = json.loads(json.dumps(self.json_path))
         return json_data
 
-    def get_sources(self, package_name: str) -> List[str]:
-        """Returns an array of all of the sources for a package"""
-        return self.get_property(package_name, 'sources')
-
     def get_property(self, package_name: str, package_property: str) -> str:
         """Returns the value of a packages key
         i.e. get_property('synth1', 'type')
@@ -70,7 +66,6 @@ class PackageRepository():
                 matches.append('None')
         return matches    
 
-
     def filter_where(self, package_type: str, value: str) -> List[str]:
         """Returns an array of all packages that have the supplied type.
         The supplied type is an array on the website-side that includes
@@ -82,13 +77,15 @@ class PackageRepository():
                     matches.append(package)
         return matches            
 
-    def get_package_names(self) -> List[str]:
-        """Returns an array of package names"""
-        return [self.data[package]['name'] for package in range(len(self.data))]
-
     def get_installed_packages(self):
         json_file = open('user.json')
         json_obj = json.load(json_file)
         return [package['name'] for package in json_obj['user']['packages']]
         
+    def get_package_names(self) -> List[str]:
+        """Returns an array of package names"""
+        return self.get_properties('name')
     
+    def get_sources(self, package_name: str) -> List[str]:
+        """Returns an array of all of the sources for a package"""
+        return self.get_property(package_name, 'sources')
