@@ -39,9 +39,7 @@ class PackageRepository():
 
     def get_sources(self, package_name: str) -> List[str]:
         """Returns an array of all of the sources for a package"""
-        for package in self.data:
-            if package_name == package['name']:
-                return package['sources']
+        return self.get_property(package_name, 'sources')
 
     #Now that we have this, we can probably remove get_sources
     #and get_type_from_name
