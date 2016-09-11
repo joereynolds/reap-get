@@ -1,7 +1,6 @@
 import unittest
 import sys
 
-
 import package_repository
 
 
@@ -41,7 +40,6 @@ class TestPackageRepository(unittest.TestCase):
                 'os': 'windows'
             },
         ]
-
 
         self.package_repository = package_repository.PackageRepository(test_json)
 
