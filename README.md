@@ -42,8 +42,3 @@ Then it's just a case of `shelltest test_cli.txt`
 
 A reapfile is a way of automating the installation of multiple plugins.
 read more about reapfiles [here](docs/reapfile.md)
-
-#Web
-
-reap-get isn't just a command line utility. There's a web interface to upload your own packages
-which can be found at http://reap-get.com
